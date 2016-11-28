@@ -1,0 +1,51 @@
+Model Parameters:
+function model = trainModel(x, y)
+param.lambda = 0.001;  % Regularization term
+param.maxiter = 1000; % Number of iterations
+param.eta = 0.001;     % Learning rate
+
+
+
+Results:
+Method 1
+Normalization used: Zero Centered Data
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			pixel	
+---------------------------------------------------
+digits-normal.mat	85.60	
+digits-scaled.mat	82.80	
+digits-jitter.mat	21.20
+
+Test set accuracy:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			pixel	
+---------------------------------------------------
+digits-normal.mat	83.00	
+digits-scaled.mat	79.40	
+digits-jitter.mat	19.00	
+
+
+Method 2
+Normalization used: L2 normalization followed by square root scaling
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			pixel	
+---------------------------------------------------
+digits-normal.mat	87.60	
+digits-scaled.mat	73.00	
+digits-jitter.mat	20.80	
+
+Test set accuracy:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			pixel	
+---------------------------------------------------
+digits-normal.mat	84.20	
+digits-scaled.mat	68.00	
+digits-jitter.mat	18.80	

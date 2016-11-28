@@ -1,0 +1,12 @@
+>> alignProkudinNew
+Elapsed time is 38.064955 seconds.
+ 1 lady.tif shift: B (-1, 0) R (-14, 1)
+Elapsed time is 37.324867 seconds.
+ 2 emir.tif shift: B ( 2,-2) R (-15,-4)
+Elapsed time is 38.491949 seconds.
+ 3 onion_church.tif shift: B ( 1, 5) R (-15,-5)
+Elapsed time is 35.140456 seconds.
+ 4 three_generations.tif shift: B (-6, 1) R (-15, 5)
+Elapsed time is 41.167881 seconds.
+ 5 village.tif shift: B (-6,-3) R (-15,15)
+>>

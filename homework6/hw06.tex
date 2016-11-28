@@ -1,0 +1,110 @@
+\documentclass[fleqn]{article}
+
+\usepackage{mydefs}
+\usepackage{notes}
+\usepackage{url}
+
+
+\begin{document}
+\lecture{Name: Abhay Doke, ID: 29552668}{HW06 Solutions: Image alignment and optical flow}{Computer Vision}
+
+% IF YOU ARE USING THIS .TEX FILE AS A TEMPLATE, PLEASE REPLACE
+% "CS 726, Fall 2011" WITH YOUR NAME AND UID.
+
+
+% ANY LINE BEGINNING "%" IS A COMMENT.  YOU CAN UNCOMMENT THE BELOW
+% TEXT AND FILL IN YOUR OWN.
+% \begin{solution}
+% \end{solution}
+\bee
+\i Consider the line fitting example using RANSAC. Suppose the fraction of points that are outliers is $p$, and at each iteration of RANSAC algorithm you sample two points to fit a line. 
+
+\bee
+\i What is the probability that RANSAC will terminate without finding the correct solution after T iterations? 
+
+\begin{solution}
+Let X be the probability that the RANSAC algorithm chooses only inliers from the input data in at least one of the T iterations. So 1 - X is the probability that RANSAC will terminate without finding the correct solution after T iterations.
+\vspace{0.1 cm}
+
+If $p$ is the fraction of points that are outliers, then $(1-p)$ is the fraction of points that are inliers. So the probability of choosing an inlier each time a single point is selected will also be $(1-p)$. 
+In every iteration RANSAC is choosing 2 points to fit the model. At any iteration assuming these two points are selected independently, \math(1-p)^{2}$ is the probability that the two points are inliers and 
+\newline [1 - \math(1-p)^{2}]$ is the probability that at least one of the 2 points is an outlier. So after the $T$ iterations, the probability that the algorithm never chooses 2 points which are all inliers is [1 - \math(1-p)^{2}]^{T}$ and this will be equal to $1 - X$.
+\vspace{0.1 cm}
+
+{\centering
+  $1 - X$ = [1 - \math(1-p)^{2}]^{T}$  (probability that RANSAC will terminate without finding the correct solution after T iterations)\par
+ \vspace{0.1 cm}
+ $X$ = 1 - [1 - \math(1-p)^{2}]^{T}$ (probability that RANSAC will find the correct solution after T iterations) \par
+}
+
+\end{solution}
+
+\i Suppose $p=0.5$, i.e., 50\% of the points are outliers. How many iterations (T) are needed to find the correct solution with probability $> 0.99$?
+
+\begin{solution}
+As derived above, the probability that the RANSAC algorithm chooses both the points as inliers is:
+\vspace{0.1 cm}
+
+{\centering
+ $X$ = 1 - [1 - \math(1-p)^{2}]^{T}$\par
+  \vspace{0.2 cm}
+  as \math X > 0.99$\par
+  \vspace{0.2 cm}
+  1 - [1 - \math(1-p)^{2}]^{T} > 0.99$\par
+  \vspace{0.2 cm}
+  as \math p = 0.5$ i.e 1/2, equation becomes,\par
+  \vspace{0.2 cm}
+  \math1 - [3/4]^{T} > 0.99$ \par
+  \vspace{0.2 cm}
+  \math [3/4]^{T} < 0.01$ \par
+  \vspace{0.2 cm}
+  taking log on both sides\par
+  \vspace{0.2 cm}
+  \math T.log(3/4) > log(0.01)$\par
+  \vspace{0.2 cm}
+  less than sign flips to greater than for log values in between [0, 1]. \par
+  \vspace{0.2 cm}
+  \math T > \frac{log(0.01)}{log(0.75)}$ \par
+  \vspace{0.2 cm}
+  \math T > 16.007$\par
+  \vspace{0.2 cm}
+ 
+}
+To get the correct solution with probability $> 0.99$, T should be greater than 16. So the value for the T should be 17 or greater.
+
+\end{solution}
+
+\i Now suppose, instead of fitting a line you are interested in fitting a transformation that requires $k$ points. For example, in the image alignment example discussed in class you needed  3 matches to estimate an affine transformation between two point sets. How does the answer to the question 1(a) change?
+
+\begin{solution}
+
+
+Suppose we have two N point sets between which we have to estimate the affine transformation. We need 3 matches to estimate it correctly, so RANSAC chooses 3 points in the first set and then tries to find their corresponding affine transformed points. The probability that the RANSAC chooses a correct point from the second set for a given point in the first set is $\frac{1}{N}$ and so $\frac{1}{N^3}$ is the probability that some iteration correctly finds all three points. The probability that the RANSAC will not find the solution at some iteration becomes $1 - \frac{1}{N^3}$  and The probability that the RANSAC will not find the solution after the T iterations will be  $[1 - \frac{1}{N^3}]^T$
+ 
+ \vspace{0.2 cm}
+
+ 
+ \vspace{0.2 cm}
+Let X be the probability that the RANSAC algorithm correctly chooses all three points from the second set after T iterations. So 1 - X is the probability that RANSAC will terminate without finding the correct solution after T iterations.
+ 
+ \vspace{0.2 cm}
+
+ {\centering
+  $1 - X$ = $[1 - \frac{1}{N^3}]^T$  (probability that RANSAC will terminate without finding the correct solution after T iterations)\par
+ \vspace{0.1 cm}
+ $X$ =  $1 - [1 - \frac{1}{N^3}]^T$ (probability that RANSAC will find the correct solution after T iterations) \par
+}
+
+\end{solution}
+
+\ene
+\i Why are corners good for estimating optical flow?
+\ene
+\begin{solution}
+For calculating the optical flow between two images at time t and t+1, we try for find a patch in image at t+1 which is most similar to a patch in image at t. We look for many patches in the vicinity and the patch with the least error is used for calculating the optical flow. For this we need to solve the least squares equation and the solvability depends on the eigenvalues in the gradient matrix. Corners have high eigenvalues $\lambda1$ and $\lambda2$ where  $\lambda1$ is the gradient in horizontal direction and $\lambda2$ is the gradient in vertical direction. High eigenvalues means dependable solvability which helps in calculating the optical flow with greater accuracy and hence corners are good for estimating optical flow. 
+
+
+
+\end{solution}
+
+\end{document}

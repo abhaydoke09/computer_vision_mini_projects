@@ -1,0 +1,18 @@
+BEST Validation set accuracies:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset             pixel    hog     lbp	
+---------------------------------------------------
+digits-normal.mat   87.60   93.60   91.20	
+digits-scaled.mat   82.80   93.40   91.40	
+digits-jitter.mat   21.20   46.40   63.40	
+
+
+BEST Test set accuracies:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset             pixel    hog     lbp	
+---------------------------------------------------
+digits-normal.mat   84.20   95.80   90.80	
+digits-scaled.mat   68.00   96.00   91.60	
+digits-jitter.mat   19.00   39.80   59.80	

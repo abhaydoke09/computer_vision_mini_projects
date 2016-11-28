@@ -1,0 +1,7 @@
+alignProkudin
+ 1 00125v.jpg shift: B (-4, 1) R (-10,-1)
+ 2 00153v.jpg shift: B (-7,-2) R (-14,-4)
+ 3 00398v.jpg shift: B (-6,-1) R (-11,-4)
+ 4 00149v.jpg shift: B (-5, 0) R (-9,-2)
+ 5 00351v.jpg shift: B (-9,-1) R (-13,-1)
+ 6 01112v.jpg shift: B (-5,-1) R (-5,-1)

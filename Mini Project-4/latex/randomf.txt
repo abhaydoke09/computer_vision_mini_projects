@@ -1,0 +1,23 @@
+NumTrees = 100
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			pixel	hog	lbp	
+---------------------------------------------------
+digits-normal.mat	84.60	90.00	79.00	
+digits-scaled.mat	80.60	90.00	79.40	
+digits-jitter.mat	25.00	35.40	40.60	
+
+
+Test set accuracy:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset             pixel    hog     lbp	
+---------------------------------------------------
+digits-normal.mat   78.20   84.80   77.00	
+digits-scaled.mat	76.00   85.80   76.20	
+digits-jitter.mat	24.20   36.00   40.80	
+
+
+	

@@ -1,0 +1,53 @@
+HoG features are calculated over 4 x 4 patches in the images.
+Image size is 28 x 28, so there are total 7 x 7 = 49 patches in each image.
+Orientation values ranged from 0 - 360 degree and these values are binned into 
+18 bins viz. 0-20, 21-40, 41-60,...., 341-360.
+So total number of features per image are 49*18 = 882
+
+Method 1: No normalization
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			hog	
+---------------------------------------------------
+digits-normal.mat	91.20	
+digits-scaled.mat	91.20	
+digits-jitter.mat	39.00	
+
+Test set accuracy:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			hog	
+---------------------------------------------------
+digits-normal.mat	91.20	
+digits-scaled.mat	90.40	
+digits-jitter.mat	33.80	
+
+Method 2: L2-normalization followed by the square-root scaling
+
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			hog	
+---------------------------------------------------
+digits-normal.mat	93.60	
+digits-scaled.mat	93.60	
+digits-jitter.mat	46.40	
+
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			hog	
+---------------------------------------------------
+digits-normal.mat	95.80	
+digits-scaled.mat	96.00	
+digits-jitter.mat	39.80	
+
+
+Hyperarameters:
+
+numOri = 0 - 360
+histogramSize(binSize) = 18
+
+param.lambda = 0.001;  % Regularization term
+param.maxiter = 1000; % Number of iterations
+param.eta = 0.001;     % Learning rate

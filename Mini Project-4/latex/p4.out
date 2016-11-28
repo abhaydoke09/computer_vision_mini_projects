@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Image representations}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Pixel features}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Histogram of oriented gradients}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Local binary patterns}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Normalization}{}% 5
+\BOOKMARK [1][-]{section.3}{Classifiers}{}% 6
+\BOOKMARK [1][-]{section.4}{Training, cross-validation, testing}{}% 7
+\BOOKMARK [1][-]{section.5}{Questions [80 points]}{}% 8
+\BOOKMARK [1][-]{section.6}{Extentions [10 points]}{}% 9

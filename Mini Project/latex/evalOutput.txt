@@ -1,0 +1,12 @@
+>> evalAlignment
+Evaluating alignment ..
+ 1 balloon.jpeg
+	   gt shift: (10,-12) (13,13)
+	 pred shift: (-10,12) (-13,-13)
+ 2 cat.jpg
+	   gt shift: ( 4,-7) (-12, 1)
+	 pred shift: (-4, 7) (12,-1)
+ 3 ip.jpg
+	   gt shift: (14,-11) (14,15)
+	 pred shift: (-14,11) (-14,-15)
+>> 

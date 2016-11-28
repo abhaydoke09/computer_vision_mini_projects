@@ -1,0 +1,52 @@
+Method 1: Calculating LBP features on the whole image.
+****** Hyperparameters for the Method 1 ***********
+param.lambda = 0.001;  % Regularization term
+param.maxiter = 2000; % Number of iterations
+param.eta = 0.01;     % Learning rate
+***************************************************
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			lbp	
+---------------------------------------------------
+digits-normal.mat	65.20	
+digits-scaled.mat	65.20	
+digits-jitter.mat	63.40	
+
+Test set accuracy:
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			lbp	
+---------------------------------------------------
+digits-normal.mat	62.40	
+digits-scaled.mat	62.40	
+digits-jitter.mat	59.80	
+
+
+Method 2: Calculating LBP features by dividing an image into 4 parts, 
+calculating LBP histogram for all four parts and then concatenating all four
+****** Hyperparameters for the Method 2 ***********
+histograms to obtain a feature vector of size 1020.
+param.lambda = 0.001;  % Regularization term
+param.maxiter = 1000; % Number of iterations
+param.eta = 0.001;     % Learning rate
+***************************************************
+
+Validation set accuracy:
++++ Accuracy Table [trainSet=1, testSet=2]
+---------------------------------------------------
+dataset			lbp	
+---------------------------------------------------
+digits-normal.mat	91.20	
+digits-scaled.mat	91.40	
+digits-jitter.mat	55.40
+
+Test set accuracy:	
++++ Accuracy Table [trainSet=1, testSet=3]
+---------------------------------------------------
+dataset			lbp	
+---------------------------------------------------
+digits-normal.mat	90.80	
+digits-scaled.mat	91.60	
+digits-jitter.mat	52.80	
